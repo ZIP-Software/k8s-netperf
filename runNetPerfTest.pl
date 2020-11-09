@@ -422,7 +422,7 @@ sub randomPodsOnDiffernetNodes {
 sub getKubernetesInfo {
 
 	#get name of all nodes in the cluster
-	my $allNodes = `kubectl get nodes -o name`;
+	my $allNodes = `kubectl get nodes -o name | grep cw`;
 	foreach (split("\n", $allNodes)) {
 		#this will be the temporary variable to store all relevant Node data
 		my %tmp = ();
